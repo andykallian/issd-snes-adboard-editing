@@ -45,83 +45,6 @@ Lê o `descomprimido.bin` editado e gera `recomprimido.bin`, pronto para ser rei
 
 **Uso:**
 ```
-compressor.exe
-
-ou, caso seja game type 1:
-
-compressor.exe 1
-```
-
----
-
-## Fluxo completo de edição
-
-1. Coloque `ISSD.sfc`, `decompressor.exe` e `compressor.exe` na mesma pasta
-2. Execute o `decompressor.exe` com o offset desejado:
-   ```
-   decompressor.exe 0D100A
-   ```
-3. Abra `descomprimido.bin` no **YY-CHR** em modo `4BPP SNES`
-4. Edite os tiles e salve o arquivo
-5. Execute o `compressor.exe`:
-   ```
-   compressor.exe
-   ```
-6. Abra a ROM no **HxD** e vá até o offset original
-7. **Anote o segundo byte** que está na ROM nesse offset (ex: `82`)
-8. Substitua os bytes da ROM pelos bytes de `recomprimido.bin` a partir do offset
-9. **Corrija o segundo byte do cabeçalho** restaurando o valor original (veja seção abaixo)
-10. Salve a ROM e teste no emulador
-
----
-
-# ISSD SNES Billboard Editing
-
-Ferramentas para extrair e reinserir gráficos das placas de anúncio de **International Superstar Soccer Deluxe (SNES)** usando compressão RLE/LZ da Konami.
-
----
-
-## Requisitos
-
-- A ROM `ISSD.sfc` deve estar na **mesma pasta** dos executáveis e deve ser **sem cabeçalho** (unheadered).
-- Editor de tiles: **YY-CHR**
-- Editor hex para reinjeção: **HxD** ou similar
-
----
-
-## Ferramentas
-
-### `decompressor.exe`
-Extrai os tiles comprimidos da ROM e gera dois arquivos:
-- `descomprimido.bin` — tiles descomprimidos prontos para edição no YY-CHR
-- `dadosOriginais.bin` — cópia dos bytes comprimidos originais extraídos da ROM
-
-**Uso — offset único:**
-```
-decompressor.exe <offset>
-decompressor.exe 0D100A
-```
-
-**Uso — range (extrai todos os blocos entre dois offsets):**
-```
-decompressor.exe <inicio> <fim>
-decompressor.exe 0D100A 0D12AF
-```
-
-**Parâmetro `game_type` (opcional):**
-```
-decompressor.exe 0F8000 1
-decompressor.exe 0F8000 0F8A33 1
-```
-Use `1` caso os dados não descomprimam corretamente com o padrão (`0`).
-
----
-
-### `compressor.exe`
-Lê o `descomprimido.bin` editado e gera `recomprimido.bin`, pronto para ser reinjetado na ROM.
-
-**Uso:**
-```
 compressor.exe 0 1
 
 ou, caso seja game type 1:
@@ -142,13 +65,10 @@ compressor.exe 1 1
 4. Edite os tiles e salve o arquivo
 5. Execute o `compressor.exe`:
    ```
-   compressor.exe
+   compressor.exe 0 1
    ```
 6. Abra a ROM no **HxD** e vá até o offset original
-7. **Anote o segundo byte** que está na ROM nesse offset (ex: `82`)
-8. Substitua os bytes da ROM pelos bytes de `recomprimido.bin` a partir do offset
-9. **Corrija o segundo byte do cabeçalho** restaurando o valor original (veja seção abaixo)
-10. Salve a ROM e teste no emulador
+7. Salve a ROM e teste no emulador
 
 ---
 
