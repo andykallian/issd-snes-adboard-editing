@@ -20,9 +20,9 @@ game_type
 
 converter
     0 = NÃO converte (dados já estão no formato da ROM)
-    1 = converte de 4BPP SNES/PCE(CG) para o formato interno Konami antes de comprimir
+    1 = converte de 4BPP 8*8 para 4BPP SNES/PCE(CG) antes de comprimir
 
-Le:   descomprimido.bin  (formato 4BPP SNES/PCE(CG) planar, gerado pelo descomprimido.py)
+Le:   descomprimido.bin, gerado pelo descomprimido.py
 Gera: recomprimido.bin
 """
 
@@ -43,22 +43,11 @@ OUT_FILE = "recomprimido.bin"
 
 
 def planar_to_snes(data):
+    
     """
-    Converte de formato 4BPP planar (PCE/CG, usado pelo YY-CHR) de volta
-    para formato SNES intercalado (formato nativo da ROM Konami).
-
-    4BPP planar (YY-CHR SNES/PCE(CG)):
-      tile[row]    = bp0 da linha row  (bytes 0-7)
-      tile[8+row]  = bp1 da linha row  (bytes 8-15)
-      tile[16+row] = bp2 da linha row  (bytes 16-23)
-      tile[24+row] = bp3 da linha row  (bytes 24-31)
-
-    SNES intercalado (formato nativo da ROM):
-      tile[row*2]      = bp0 da linha row
-      tile[row*2+1]    = bp1 da linha row
-      tile[16+row*2]   = bp2 da linha row
-      tile[16+row*2+1] = bp3 da linha row
+    Converte de formato 4BPP 8*8 para formato 4BPP SNES/PCE(CG) (planar).
     """
+
     n_tiles = len(data) // 32
     out = bytearray()
     for t in range(n_tiles):
@@ -254,7 +243,7 @@ def main():
     in_data = open(IN_FILE, "rb").read()
 
     if convert_graphics:
-        print("Convertendo 4BPP SNES/PCE(CG) -> formato interno Konami...")
+        print("Convertido para 4BPP SNES/PCE(CG).")
         in_data = planar_to_snes(in_data)
 
     compressed = konami_compress(in_data, game_type)

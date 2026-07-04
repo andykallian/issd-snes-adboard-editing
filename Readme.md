@@ -1,4 +1,4 @@
-# ISSD SNES Billboard Editing
+# ISSD SNES Adboard Editing
 
 Ferramentas para extrair e reinserir gráficos das placas de anúncio de **International Superstar Soccer Deluxe (SNES)** usando compressão RLE/LZ da Konami.
 

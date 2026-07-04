@@ -11,17 +11,12 @@ Uso (range - descomprime tudo entre dois offsets):
   python descomprimido.py F8000 FB94B 1      <- game_type=1
   python descomprimido.py 0 200000           <- ROM inteira
 
-Gera: descomprimido.bin  (na mesma pasta, formato 4BPP SNES/PCE(CG))
+Gera: descomprimido.bin
 ROM:  ISSD.sfc           (deve estar na mesma pasta)
 
 FORMATO DE SAIDA:
-  O descomprimido.bin e gerado em formato 4BPP SNES/PCE(CG) (planar).
-  Abra no YY-CHR selecionando "4BPP SNES/PCE(CG)".
-  Cada tile de 32 bytes:
-    bytes  0- 7: bitplane 0, linhas 0-7
-    bytes  8-15: bitplane 1, linhas 0-7
-    bytes 16-23: bitplane 2, linhas 0-7
-    bytes 24-31: bitplane 3, linhas 0-7
+  O descomprimido.bin e gerado em formato 4BPP
+  Abra no YY-CHR selecionando "4BPP 8*8".
 """
 
 import sys
@@ -321,9 +316,9 @@ def main():
         print("-" * 50)
         print()
         print("Próximos passos:")
-        print(f"  1. Abra {OUT_FILE} no YY-CHR em modo '4BPP SNES/PCE(CG)'")
+        print(f"  1. Abra {OUT_FILE} no YY-CHR")
         print(f"  2. Edite os tiles e salve")
-        print(f"  3. Execute: python comprimido.py")
+        print(f"  3. Execute: python compressor.py 0 1")
 
 
 if __name__ == "__main__":
