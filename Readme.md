@@ -139,6 +139,7 @@ Os offsets abaixo são endereços na ROM (.sfc) para uso direto no decompressor.
 |----------|----------|
 | 0D12AF   | 0D14C1   |
 | 0DFA90   | 0DFD84   |
+| 0FBA9A   | 0FBBDD   |
 | 0FDA53   | 0FE022   |
 | 0FE022   | 0FE35C   |
 
@@ -148,6 +149,7 @@ Os offsets abaixo são endereços na ROM (.sfc) para uso direto no decompressor.
 | Início   | Fim      |
 |----------|----------|
 | 0D625D   | 0D65CF   |
+| OFBB6F   | 0FBBDD   |
 | 10156A   | 101AFD   |
 | 101AFD   | 102100   |
 
