@@ -149,7 +149,7 @@ Os offsets abaixo são endereços na ROM (.sfc) para uso direto no decompressor.
 | Início   | Fim      |
 |----------|----------|
 | 0D625D   | 0D65CF   |
-| OFBB6F   | 0FBBDD   |
+| 0FBB6F   | 0FBBDD   |
 | 10156A   | 101AFD   |
 | 101AFD   | 102100   |
 
@@ -167,6 +167,7 @@ Os offsets abaixo são endereços na ROM (.sfc) para uso direto no decompressor.
 ### 🇳🇬 Placas Nigéria
 | Início   | Fim      |
 |----------|----------|
+| 0F8A40   | 0F8C0A   |
 | 1134C5   | 113857   |
 | 113857   | 11415F   |
 | 11415F   | 1142FF   |
@@ -181,6 +182,13 @@ Os offsets abaixo são endereços na ROM (.sfc) para uso direto no decompressor.
 |----------|----------|
 | 0C8182   | 0C87C1   |
 | 0C87C1   | 0C90A0   |
+
+*Placas japão precisam ser descomprimidas usando o parâmetro 1 e recomprimidas usando parâmetros 1 1
+
+| Tiles de placa A na placa B |
+0DB5C4, 0DB5C5, 0DB5FB, 0DB5FF, 0DB606, 0DB61E, 0DB623, 0DB627
+
+Organização de tiles tambem no bloco 0DB0F0
 
 ---
 
