@@ -154,14 +154,14 @@ Os offsets abaixo são endereços na ROM (.sfc) para uso direto no decompressor.
 | 0FBB6F   | 0FBBDD   |
 | 10156A   | 101AFD   |
 | 101AFD   | 102100   |
-| 13ABE8   | XXXXXX   |**** Tem que editar manualmente
+| 13ABE8   | XXXXXX   | <--- Tem que editar manualmente
 
 ---
 
 ### 🇧🇷 Placas Brasil
 | Início   | Fim      |
 |----------|----------|
-| 0FBA30   | 0FBA99   |**** Tem que editar manualmente
+| 0FBA30   | 0FBA99   | <--- Tem que editar manualmente
 | 10712B   | 10772A   |
 | 10772A   | 107B7B   |
 | 104C50   | 104EB4   |
